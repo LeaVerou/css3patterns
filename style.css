@@ -1,0 +1,283 @@
+* {
+	margin:0;
+	padding:0;
+}
+
+html {
+	height:100%;
+}
+
+body {
+	min-height:100%;
+	padding:0 2.5em;
+	font-family: Palatino, 'Palatino Linotype', serif;
+	background: #e8eff5 url('noise.png');
+	
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+h1, h2 {
+	padding-top:.2em;
+	color:#e50;
+	text-shadow: 0 2px white;
+}
+
+h1 {
+	text-align:center;
+	font-size:500%;
+}
+
+a {
+	color:inherit;
+	text-decoration:none;
+}
+
+body > p,
+body > ul {
+	margin:1em 0;
+	line-height:1.5;
+}
+
+h2,
+p,
+ul:not(#patterns) {
+	text-shadow: 0 1px white;
+}
+
+body[style] > h2,
+body[style] > p,
+body[style] > ul:not(#patterns) {
+	display:none;
+}
+
+h2 + p,
+p + ul {
+	margin-top:.3em;
+}
+
+body > ul > li > a,
+body > p > a {
+	border-bottom:2px dotted white;
+}
+
+body > ul > li > a:hover,
+body > p > a:hover {
+	border-bottom-color:slategray;
+}
+
+#help {
+	text-align: center;
+}
+
+	#help > li {
+		display:inline;
+		list-style:none;
+		text-shadow: 0 1px white;
+	}
+	
+	#help > li + li:before {
+		content: '● ';
+		opacity:.4;
+	}
+
+#patterns {
+	
+}
+
+#patterns:after {
+	content:"";
+	display:block;
+	clear:both;
+}
+
+	#patterns > li {
+		position:relative;
+		width: 300px;
+		height:300px;
+		margin:40px;
+		float:left;
+		list-style:none;
+	}
+	
+	#patterns > li:not(:target) {
+		cursor:pointer;
+		background-color:gray;
+		
+		-moz-border-radius: 150px;
+		-webkit-border-radius: 150px;
+		border-radius: 150px;
+		
+		-moz-box-shadow: -3px -3px 10px 2px rgba(0,0,0,.3) inset,
+					0 0 0 15px rgba(255, 255, 255, .6) inset,
+					0 0 0 1px rgba(0,0,0,.5),
+					2px 2px 10px rgba(0,0,0,.6);
+		box-shadow: -3px -3px 10px 2px rgba(0,0,0,.3) inset,
+					0 0 0 15px rgba(255, 255, 255, .6) inset,
+					0 0 0 1px rgba(0,0,0,.5),
+					2px 2px 10px rgba(0,0,0,.6);
+		/* Overrride for Webkit bug */
+		-webkit-box-shadow: 0 0 0 15px rgba(255, 255, 255, .6) inset,
+					0 0 0 1px rgba(0,0,0,.5),
+					2px 2px 10px rgba(0,0,0,.6);
+	}
+	
+	#patterns > li:target {
+		background: none !important;
+	}
+	
+	body[style] #patterns > li:not(:target) {
+		display:none;
+	}
+	
+		#patterns > li > div {
+			position:absolute;
+			top:235px;
+			left:55px;
+			width:250px;
+			z-index:2;
+			padding:3px 10px 5px;
+			color:#e50;
+			color: hsla(20,100%,50%,.94);
+			font-size:90%;
+			background:currentColor;
+			box-shadow: 2px 2px 10px rgba(0,0,0,.5);
+		}
+		
+		#patterns > li:target > div {
+			position:fixed;
+			top:auto;
+			left:20px;
+			right:20px;
+			bottom:20px;
+			z-index:3;
+			width:auto;
+			padding:10px;
+			font-size:200%;
+		}
+		
+		#patterns > li > div:after {
+			content: "";
+			position:absolute;
+			top:-30px;
+			left:30px;
+			border:15px solid transparent;
+			border-bottom-color:currentColor;
+			border-left-width:0;
+		}
+		
+		#patterns > li:target > div:after {
+			border-width:30px;
+			border-left-width:0;
+			top:-60px;
+			left:60px;
+		}
+		
+			#patterns > li h2,
+			#patterns > li p,
+			#patterns > li textarea {
+				color:white;
+				text-shadow: .05em .05em .1em rgba(0,0,0,.4);
+			}
+			
+			#patterns > li h2 {
+				font-size:140%;
+			}
+			
+			#patterns > li:target h2 {
+				float: left;
+				margin-bottom: .3em;
+			}
+			
+			#patterns > li .bytesize {
+				font-weight:normal;
+				opacity:.7;
+			}
+			
+			#patterns > li p {
+				font-size:85%;
+				line-height:1.8;
+				opacity:.7;
+				text-shadow: none;
+			}
+			
+			#patterns > li:target p {
+				float: right;
+			}
+			
+			#patterns > li textarea {
+				display:none;
+				width:100%;
+				color:white;
+				background: #333538;
+				padding: .5em;
+				border:0;
+				font-family: Consolas, Monaco, 'Andale Mono', monospace;
+				
+				-moz-resize:vertical;
+				resize:vertical;
+				
+				-moz-box-sizing: border-box;
+				-webkit-box-sizing: border-box;
+				box-sizing: border-box;
+				
+				-moz-box-shadow: 1px 1px 10px black inset;
+				-webkit-box-shadow: 1px 1px 10px black inset;
+				box-shadow: 1px 1px 10px black inset;
+				
+				border-radius: 1px; /* Opera bug fix */
+			}
+			
+			#patterns > li:target textarea {
+				display:block;
+			}
+			
+			#patterns > li .close {
+				display:none;
+				position:absolute;
+				top:-.5em;
+				right:-.5em;
+				width:1.5em;
+				line-height:1.5;
+				height:1.5em;
+				border: .2em solid white;
+				font-size:80%;
+				color:white;
+				background: rgba(20,20,20,.7);
+				text-align:center;
+				text-shadow: 1px 1px 3px black;
+				
+				-moz-border-radius:1em;
+				-webkit-border-radius:1em;
+				border-radius:1em;
+				
+				-moz-box-shadow: 1px 1px 5px rgba(0,0,0,.5);
+				-webkit-box-shadow: 1px 1px 5px rgba(0,0,0,.5);
+				box-shadow: 1px 1px 5px rgba(0,0,0,.5);
+			}
+			
+			#patterns > li .close:hover {
+				background:black;
+			}
+			
+			#patterns > li:target .close {
+				display:block;
+			}
+			
+#social {
+	position: fixed;
+	top: 10px;
+	left: 10px;
+}
+
+	#social iframe {
+		margin-top: .5em;
+	}
+			
+#footer {
+	clear:both;
+	text-align:center;
+	padding:.5em;
+	border-top:1px solid rgba(0,0,0,.3);
+	text-shadow: 0 1px white;
+}
