@@ -1,0 +1,7 @@
+background:
+radial-gradient(white 15%, transparent 6%) 0 0,
+radial-gradient(white 15%, transparent 6%) 4px 4px,
+radial-gradient(rgba(259,259,259,.1) 15%, transparent 20%) 0 .5px,
+radial-gradient(rgba(259,259,259,.1) 15%, transparent 20%) 4px 4px;
+background-color:#e8e8e8;
+background-size:8px 8px;
