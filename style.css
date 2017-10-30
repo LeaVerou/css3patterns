@@ -243,6 +243,7 @@ body > p > a:hover {
 	position: fixed;
 	top: 10px;
 	left: 10px;
+	z-index: 2;
 }
 
 	#social iframe {
