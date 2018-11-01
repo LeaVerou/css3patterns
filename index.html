@@ -365,7 +365,7 @@ background-repeat: repeat-x;"
     background-size: 25px 25px;"
         title="Chocolate Weave" data-author="Paul Salentiny"></li>
 
-    <li style="background: 
+    <li style="background:
     radial-gradient(black 3px, transparent 4px),
     radial-gradient(black 3px, transparent 4px),
     linear-gradient(#fff 4px, transparent 0),
@@ -397,20 +397,6 @@ However, implementation limitations might cause some of them to not be displayed
 	&bull; If no other author is mentioned, the pattern is created by <a href="http://lea.verou.me">Lea Verou</a>
 </p>
 
-<script src="https://leaverou.github.io/prefixfree/prefixfree.min.js"></script>
-<script>
-StyleFix.register(function(css, raw) {
-	if (PrefixFree.functions.indexOf('radial-gradient') > -1) {
-		css = css.replace(/radial-gradient\(([a-z-\s]+\s+)?at ([^,]+)(?=,)/g, function($0, shape, center){
-			return 'radial-gradient(' + center + (shape? ', ' + shape : '');
-		});
-	}
-
-	return css;
-});
-</script>
-<script src="https://leaverou.github.io/csss/plugins/css-edit.js"></script>
-<script src="https://leaverou.github.io/csss/plugins/css-snippets.js"></script>
 <script src="https://leaverou.github.io/incrementable/incrementable.js"></script>
 <script src="http://bytesizematters.com/bytesize.js"></script>
 <script src="css3patterns.js"></script>

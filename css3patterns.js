@@ -5,9 +5,9 @@ var patterns = document.querySelectorAll("#patterns > li"),
 	currentPattern = null;
 
 for (var i=0; i<patterns.length; i++) {
-	var pattern = patterns[i];
+	let pattern = patterns[i];
 
-	var div = document.createElement("div"),
+	let div = document.createElement("div"),
 		heading = div.appendChild(document.createElement("h2")),
 		code = document.createElement("textarea"),
 		title = pattern.getAttribute("title"),
@@ -18,15 +18,24 @@ for (var i=0; i<patterns.length; i++) {
 	heading.innerHTML = '<a href="#' + pattern.id + '">' + title + "</a>";
 
 	code.value = pattern.getAttribute("style");
-	code.setAttribute("data-subject", "#patterns li:nth-child(" + (i+1) + ")");
 	code.setAttribute("wrap", "off");
-	code.oninput = function() {
+
+	code.addEventListener("input", function(evt) {
 		var byteSize = this.parentNode.querySelector(".bytesize");
 
 		if (byteSize) {
 			byteSize.innerHTML = ByteSize.format(ByteSize.count(this.value), true);
 		}
-	};
+
+		pattern.setAttribute("style", this.value);
+
+		if (currentPattern === pattern) {
+			// A pattern is opened
+			document.body.setAttribute("style", this.value);
+		}
+
+		code.style.setProperty("--lines", this.value.trim().split(/\r?\n|\r/).length);
+	});
 
 	close.className = "close";
 	close.href = "#";
@@ -54,9 +63,9 @@ for (var i=0; i<patterns.length; i++) {
 		}
 	};
 
-	pattern.snippet = new CSSSnippet(code);
-
 	window.Incrementable && new Incrementable(code);
+
+	code.dispatchEvent(new InputEvent("input"));
 }
 
 (onhashchange = function() {
@@ -65,15 +74,10 @@ for (var i=0; i<patterns.length; i++) {
 	if (pattern) {
 		recentPattern = currentPattern = pattern;
 		document.body.setAttribute("style", pattern.getAttribute("style"));
-		pattern.snippet.subjects[1] = document.body;
 	}
 	else {
 		currentPattern = null;
 		document.body.removeAttribute("style");
-
-		if (recentPattern) {
-			delete recentPattern.snippet.subjects[1];
-		}
 	}
 })();
 

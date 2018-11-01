@@ -73,14 +73,14 @@ body > p > a:hover {
 		list-style:none;
 		text-shadow: 0 1px white;
 	}
-	
+
 	#help > li + li:before {
 		content: '● ';
 		opacity:.4;
 	}
 
 #patterns {
-	
+
 }
 
 #patterns:after {
@@ -97,7 +97,7 @@ body > p > a:hover {
 		float:left;
 		list-style:none;
 	}
-	
+
 	#patterns > li:not(:target) {
 		cursor:pointer;
 		background-color:gray;
@@ -111,15 +111,15 @@ body > p > a:hover {
 					0 0 0 1px rgba(0,0,0,.5),
 					2px 2px 10px rgba(0,0,0,.6);
 	}
-	
+
 	#patterns > li:target {
 		background: none !important;
 	}
-	
+
 	body[style] #patterns > li:not(:target) {
 		display:none;
 	}
-	
+
 		#patterns > li > div {
 			position:absolute;
 			top:235px;
@@ -133,7 +133,7 @@ body > p > a:hover {
 			background:currentColor;
 			box-shadow: 2px 2px 10px rgba(0,0,0,.5);
 		}
-		
+
 		#patterns > li:target > div {
 			position:fixed;
 			top:auto;
@@ -145,7 +145,7 @@ body > p > a:hover {
 			padding:10px;
 			font-size:200%;
 		}
-		
+
 		#patterns > li > div:after {
 			content: "";
 			position:absolute;
@@ -155,64 +155,65 @@ body > p > a:hover {
 			border-bottom-color:currentColor;
 			border-left-width:0;
 		}
-		
+
 		#patterns > li:target > div:after {
 			border-width:30px;
 			border-left-width:0;
 			top:-60px;
 			left:60px;
 		}
-		
+
 			#patterns > li h2,
 			#patterns > li p,
 			#patterns > li textarea {
 				color:white;
 				text-shadow: .05em .05em .1em rgba(0,0,0,.4);
 			}
-			
+
 			#patterns > li h2 {
 				font-size:140%;
 			}
-			
+
 			#patterns > li:target h2 {
 				float: left;
 				margin-bottom: .3em;
 			}
-			
+
 			#patterns > li .bytesize {
 				font-weight:normal;
 				opacity:.7;
 			}
-			
+
 			#patterns > li p {
 				font-size:85%;
 				line-height:1.8;
 				opacity:.7;
 				text-shadow: none;
 			}
-			
+
 			#patterns > li:target p {
 				float: right;
 			}
-			
+
 			#patterns > li textarea {
 				display:none;
 				width:100%;
+				max-height: 50vh;
 				color:white;
 				background: #333538;
 				padding: .5em;
 				border:0;
-				font-family: Consolas, Monaco, 'Andale Mono', monospace;
+				font: 100%/1.5 Consolas, Monaco, 'Andale Mono', monospace;
 				resize:vertical;
 				box-sizing: border-box;
 				box-shadow: 1px 1px 10px black inset;
-				border-radius: 1px; /* Opera bug fix */
+				height: calc(var(--lines, 1) * 1.5em + 1em + 16px);
 			}
-			
+
 			#patterns > li:target textarea {
 				display:block;
 			}
-			
+
 			#patterns > li .close {
 				display:none;
 				position:absolute;
@@ -230,15 +231,15 @@ body > p > a:hover {
 				border-radius:1em;
 				box-shadow: 1px 1px 5px rgba(0,0,0,.5);
 			}
-			
+
 			#patterns > li .close:hover {
 				background:black;
 			}
-			
+
 			#patterns > li:target .close {
 				display:block;
 			}
-			
+
 #social {
 	position: fixed;
 	top: 10px;
@@ -249,7 +250,7 @@ body > p > a:hover {
 	#social iframe {
 		margin-top: .5em;
 	}
-			
+
 #footer {
 	clear:both;
 	text-align:center;
